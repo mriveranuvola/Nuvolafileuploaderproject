@@ -18,11 +18,14 @@
         ' data-template="{template}"', teContent = '<td class="kv-file-content">\n';
     $.fn.fileinputThemes['explorer-fa'] = {
         layoutTemplates: {
-            preview: '<div class="file-preview {class}">\n' +
+            preview: '' +
+            '<div class="file-preview {class}">\n' +
             '    {close}' +
             '    <div class="{dropClass}">\n' +
-            '    <table class="table table-bordered table-hover"><tbody class="file-preview-thumbnails">\n' +
-            '    </tbody></table>\n' +
+            '    <table class="table table-bordered table-hover">' +
+            '       <tbody class="file-preview-thumbnails">\n' +
+            '       </tbody>' +
+            '    </table>\n' +
             '    <div class="clearfix"></div>' +
             '    <div class="file-preview-status text-center text-success"></div>\n' +
             '    <div class="kv-fileinput-error"></div>\n' +

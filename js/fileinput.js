@@ -658,7 +658,13 @@
                 '      {browse}\n' +
                 '    </div>\n' +
                 '</div>';
-            tMain2 = '{preview}\n<div class="kv-upload-progress kv-hidden"></div>\n<div class="clearfix"></div>\n{remove}\n{cancel}\n{upload}\n{browse}\n';
+            tMain2 = '{preview}\n' +
+                '<div class="kv-upload-progress kv-hidden"></div>\n' +
+                '<div class="clearfix"></div>\n' +
+                '{remove}\n' +
+                '{cancel}\n' +
+                '{upload}\n' +
+                '{browse}\n';
             tPreview = '<div class="file-preview {class}">\n' +
                 '    {close}' +
                 '    <div class="{dropClass}">\n' +
@@ -889,7 +895,7 @@
                     showUpload: true,
                     showDownload: true,
                     showZoom: true,
-                    showDrag: true,
+                    showDrag: false,
                     removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
                     removeClass: 'btn btn-sm btn-kv btn-default btn-outline-secondary',
                     removeErrorClass: 'btn btn-sm btn-kv btn-danger',
@@ -3355,7 +3361,8 @@
                 'upload': self._renderButton('upload'),
                 'remove': self._renderButton('remove'),
                 'cancel': self._renderButton('cancel'),
-                'browse': self._renderButton('browse')
+                'browse': self._renderButton('browse'),
+                'title':  self.title
             });
 
         },
@@ -4213,15 +4220,15 @@
 
     $.fn.fileinput.defaults = {
         language: 'en',
-        showCaption: true,
+        showCaption: false,
         showBrowse: true,
         showPreview: true,
         showRemove: true,
-        showUpload: true,
+        showUpload: false,
         showCancel: true,
-        showClose: true,
+        showClose: false,
         showUploadedThumbs: true,
-        browseOnZoneClick: false,
+        browseOnZoneClick: true,
         autoReplace: false,
         autoOrientImage: true, // for JPEG images based on EXIF orientation tag
         required: false,
@@ -4324,7 +4331,7 @@
         elErrorContainer: null,
         errorCloseButton: $h.closeButton('kv-error-close'),
         slugCallback: null,
-        dropZoneEnabled: true,
+        dropZoneEnabled: false,
         dropZoneTitleClass: 'file-drop-zone-title',
         fileActionSettings: {},
         otherActionButtons: '',
@@ -4339,6 +4346,7 @@
     };
 
     $.fn.fileinputLocales.en = {
+        title : 'Attachments',
         fileSingle: 'file',
         filePlural: 'files',
         browseLabel: 'Browse &hellip;',
