@@ -119,7 +119,14 @@ $border: 1px !default;
     width: 100%;
 }
 
-.kv-hidden {
+%set-btn-close {
+    color: #cccccc;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+    .kv-hidden {
     @extend %set-hidden;
 }
 
@@ -202,16 +209,24 @@ $border: 1px !default;
     }
 }
 
-
-
 .nuvolafileuploaderModalBtn{
     @extend %set-attachPaperClipBtn;
 }
 
 
+#nuvolafileuploaderModal{
+
+    & a.btn-close{
+      @extend %set-btn-close;
+        padding: 7px 14px;
+
+    }
+}
+
+
 div.file-input.theme-nuvola {
     font-family: 'Lato', serif;
-    padding: 30px;
+    padding: 0 30px 30px 30px;
     .file-object {
         margin: 0 0 (-$pad) 0;
         padding: 0;
@@ -293,11 +308,11 @@ div.file-input.theme-nuvola {
                 overflow: hidden;
                 color: $blue;
                 font-size: 11px;
-                font-weight: 700;
+                font-weight: 400;
 
             }
 
-            & .kv-file-content.image{
+            & .kv-file-content.content-wrapper{
                 text-align: center;
                 height: 100px;
                 overflow: hidden;
@@ -321,31 +336,68 @@ div.file-input.theme-nuvola {
 
             }
 
+            & .file-thumb-progress{
+                height: 3px;
+                line-height: 3px;
+                overflow: hidden;
+
+            }
+
             & .file-actions{
                 position: absolute;
-                top: calc(50% - 5px);
+                top: calc(50% - 10px);
                 left: 0;
                 text-align: center;
                 width: 100%;
                 display: none;
+
+                & a.btn-action{
+                    display: inline-block;;
+                    padding: 5px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #ffffff;
+
+                    &:hover{
+                        color: #cccccc;
+                        cursor:pointer;
+                    }
+
+                    &:active{
+                        color: $blue;
+                    }
+                }
 
 
             }
 
             &:hover{
                 & .file-actions{
-                   display: block;
-
+                    display: block;
+                    z-index: 5;
                 }
 
-                & .kv-file-content.image{
+                & .kv-file-content.content-wrapper{
                      border: 1.5px solid $blue;
                      transform: scale(1.2);
-                     z-index: 15 ;
+                     z-index: 3 ;
                     & img{
                         //transform: scale(1.5);
                     }
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: transparentize(#000,0.5);
+                        z-index: 4;
+                    }
                 }
+
+
             }
 
 
@@ -523,6 +575,19 @@ div.file-input.theme-nuvola {
 }
 
 .file-zoom-dialog {
+    font-family: 'Lato', serif;
+    & a.btn-close{
+        @extend %set-btn-close;
+        margin: 10px;
+
+    }
+    & .kv-zoom-actions {
+        position: absolute;
+        top:0;
+        right: 0;
+        z-index: 10;
+    }
+
     .file-other-icon {
         //noinspection CssOverwrittenProperties
         font-size: 22em;
@@ -554,13 +619,14 @@ div.file-input.theme-nuvola {
         opacity: 0.7;
         top: 45%;
         font-size: 4em;
-        color: $curious-blue;
+        color: #ffffff;
         &:not([disabled]):hover {
             outline: none;
             box-shadow: none;
             opacity: 0.6;
         }
     }
+
     .floating-buttons {
         @extend %set-absolute;
         top: $pad;
@@ -569,20 +635,87 @@ div.file-input.theme-nuvola {
     .btn-navigate[disabled] {
         opacity: 0.3;
     }
+
+    $position : -80px;
     .btn-prev {
-        left: multiply($pad, 0.2);
+        left: $position;
     }
+
     .btn-next {
-        right: multiply($pad, 0.2);
+        right: $position;
     }
-    .kv-zoom-title {
-        font-weight: 300;
-        color: $mountain-mist;
-        max-width: 50%;
+
+
+    & .modal-body{
+        & .kv-zoom-content-footer{
+            font-size: 12px;
+            max-width: 70%;
+            margin: 0 auto;
+            color: $blue;
+            text-align: center;
+            clear: both;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+        }
+
+        .kv-zoom-title {
+            font-weight: 400;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .file-zoom-content {
+        height:470px;
+        line-height: 470px;
+        text-align: center;
         overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        .file-preview-image {
+            max-height: 100%;
+            vertical-align: middle;
+
+        }
+        .file-preview-video {
+            max-height: 100%;
+        }
+        .is-portrait-gt4 {
+            margin-top: multiply($pad, 12);
+        }
+        > .file-object {
+            &.type-image {
+                @extend %set-object;
+                height: auto;
+                min-height: inherit;
+            }
+            &.type-video {
+                @extend %set-object-video;
+            }
+            &.type-flash {
+                @extend %set-object-video;
+            }
+            &.type-audio {
+                width: auto;
+                height: multiply($pad, 6);
+            }
+            &.type-pdf {
+                @extend %set-object-default;
+            }
+            &.type-html {
+                @extend %set-object-default;
+            }
+            &.type-text {
+                @extend %set-object-default;
+            }
+            &.type-default {
+                @extend %set-object-default;
+            }
+        }
+
+
     }
+
 }
 
 .file-input-new {
@@ -727,48 +860,9 @@ div.file-input.theme-nuvola {
     }
 }
 
-.file-zoom-content {
-    height: multiply($pad, 96);
-    text-align: center;
-    .file-preview-image {
-        max-height: 100%;
-    }
-    .file-preview-video {
-        max-height: 100%;
-    }
-    .is-portrait-gt4 {
-        margin-top: multiply($pad, 12);
-    }
-    > .file-object {
-        &.type-image {
-            @extend %set-object;
-            height: auto;
-            min-height: inherit;
-        }
-        &.type-video {
-            @extend %set-object-video;
-        }
-        &.type-flash {
-            @extend %set-object-video;
-        }
-        &.type-audio {
-            width: auto;
-            height: multiply($pad, 6);
-        }
-        &.type-pdf {
-            @extend %set-object-default;
-        }
-        &.type-html {
-            @extend %set-object-default;
-        }
-        &.type-text {
-            @extend %set-object-default;
-        }
-        &.type-default {
-            @extend %set-object-default;
-        }
-    }
-}
+
+
+
 
 @media screen and(max-width: 767px) {
     .file-zoom-dialog .modal-header {
@@ -800,9 +894,7 @@ div.file-input.theme-nuvola {
     cursor: pointer;
 }
 
-.kv-zoom-actions .btn-kv {
-    margin-left: multiply($pad, 0.6);
-}
+
 
 .file-preview-initial.sortable-chosen {
     background-color: $link-water;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -31,6 +31,10 @@
        <div class="modal" id="nuvolafileuploaderModal" tabindex="-1" role="dialog">
            <div class="modal-dialog" role="document">
                <div class="modal-content modal-lg">
+                   <div class="">
+                       <a type="button" class="btn-close pull-right" data-dismiss="modal"><i class="fa fa-times"></i></a>
+                        <div class="clearfix"></div>
+                   </div>
                    <div class="modal-body">
                        <div class="file-loading">
                            <input type="file" name="test[]" id="attahments" multiple>
@@ -39,19 +43,9 @@
                </div>
            </div>
        </div>
-
+   </div>
    <script>
-       $(document).ready(function(){
 
-           $("#open").click(function () {
-               console.log('documentReady');
-               $("#nuvolafileuploaderModal").modal('show');
-           })
-
-           $("#attahments").fileinput({
-               theme: 'nuvola',
-               uploadUrl: "/file-upload-single/1"})
-       });
    </script>
 
 </body>

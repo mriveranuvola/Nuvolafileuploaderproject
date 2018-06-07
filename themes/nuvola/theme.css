@@ -21,7 +21,7 @@
 div.file-input.theme-nuvola .btn-file input[type=file], div.file-input.theme-nuvola .file-preview .fileinput-remove, div.file-input.theme-nuvola .file-caption-icon, .krajee-default .file-thumb-progress, .file-zoom-dialog .btn-navigate, .file-zoom-dialog .floating-buttons {
   position: absolute; }
 
-.file-loading:before, .nuvolafileuploaderModalBtn, div.file-input.theme-nuvola .btn-file, div.file-input.theme-nuvola .file-preview, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image, div.file-input.theme-nuvola .file-caption, .krajee-default.file-preview-frame, .krajee-default .file-thumbnail-footer, .file-zoom-dialog .modal-dialog {
+.file-loading:before, .nuvolafileuploaderModalBtn, div.file-input.theme-nuvola .btn-file, div.file-input.theme-nuvola .file-preview, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.content-wrapper, div.file-input.theme-nuvola .file-caption, .krajee-default.file-preview-frame, .krajee-default .file-thumbnail-footer, .file-zoom-dialog .modal-dialog {
   position: relative; }
 
 div.file-input.theme-nuvola .file-error-message pre, div.file-input.theme-nuvola .file-error-message ul, .krajee-default .file-actions, .krajee-default .file-other-error {
@@ -49,16 +49,21 @@ div.file-input.theme-nuvola .file-error-message pre, div.file-input.theme-nuvola
   height: 15px;
   margin: auto; }
 
-.file-zoom-content > .file-object.type-video, .file-zoom-content > .file-object.type-flash, .file-zoom-content > .file-object.type-image {
+.file-zoom-dialog .file-zoom-content > .file-object.type-video, .file-zoom-dialog .file-zoom-content > .file-object.type-flash, .file-zoom-dialog .file-zoom-content > .file-object.type-image {
   max-width: 100%;
   max-height: 100%;
   width: auto; }
 
-.file-zoom-content > .file-object.type-video, .file-zoom-content > .file-object.type-flash {
+.file-zoom-dialog .file-zoom-content > .file-object.type-video, .file-zoom-dialog .file-zoom-content > .file-object.type-flash {
   height: 100%; }
 
-.file-zoom-content > .file-object.type-pdf, .file-zoom-content > .file-object.type-html, .file-zoom-content > .file-object.type-text, .file-zoom-content > .file-object.type-default {
+.file-zoom-dialog .file-zoom-content > .file-object.type-pdf, .file-zoom-dialog .file-zoom-content > .file-object.type-html, .file-zoom-dialog .file-zoom-content > .file-object.type-text, .file-zoom-dialog .file-zoom-content > .file-object.type-default {
   width: 100%; }
+
+#nuvolafileuploaderModal a.btn-close, .file-zoom-dialog a.btn-close {
+  color: #cccccc; }
+  #nuvolafileuploaderModal a.btn-close:hover, .file-zoom-dialog a.btn-close:hover {
+    cursor: pointer; }
 
 .rotate-2 {
   transform: rotateY(180deg); }
@@ -114,9 +119,12 @@ div.file-input.theme-nuvola .file-error-message pre, div.file-input.theme-nuvola
   .nuvolafileuploaderModalBtn:active, div.file-input.theme-nuvola .btn-file:active {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
+#nuvolafileuploaderModal a.btn-close {
+  padding: 7px 14px; }
+
 div.file-input.theme-nuvola {
   font-family: 'Lato', serif;
-  padding: 30px; }
+  padding: 0 30px 30px 30px; }
   div.file-input.theme-nuvola .file-object {
     margin: 0 0 -5px 0;
     padding: 0; }
@@ -166,8 +174,8 @@ div.file-input.theme-nuvola {
         overflow: hidden;
         color: #1d5b78;
         font-size: 11px;
-        font-weight: 700; }
-      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image {
+        font-weight: 400; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.content-wrapper {
         text-align: center;
         height: 100px;
         overflow: hidden;
@@ -176,7 +184,7 @@ div.file-input.theme-nuvola {
         background-color: #e4e4e4;
         transition: transform .2s;
         /* Animation */ }
-        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image img {
+        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.content-wrapper img {
           width: auto;
           height: 100px;
           max-height: none !important;
@@ -187,19 +195,44 @@ div.file-input.theme-nuvola {
           transform: translateX(-50%);
           transition: transform .2s;
           /* Animation */ }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-thumb-progress {
+        height: 3px;
+        line-height: 3px;
+        overflow: hidden; }
       div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-actions {
         position: absolute;
-        top: calc(50% - 5px);
+        top: calc(50% - 10px);
         left: 0;
         text-align: center;
         width: 100%;
         display: none; }
+        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-actions a.btn-action {
+          display: inline-block;
+          padding: 5px;
+          font-size: 16px;
+          font-weight: bold;
+          color: #ffffff; }
+          div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-actions a.btn-action:hover {
+            color: #cccccc;
+            cursor: pointer; }
+          div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-actions a.btn-action:active {
+            color: #1d5b78; }
       div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .file-actions {
-        display: block; }
-      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .kv-file-content.image {
+        display: block;
+        z-index: 5; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .kv-file-content.content-wrapper {
         border: 1.5px solid #1d5b78;
         transform: scale(1.2);
-        z-index: 15; }
+        z-index: 3; }
+        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .kv-file-content.content-wrapper:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 4; }
   div.file-input.theme-nuvola .file-caption .file-caption-name {
     width: 100%;
     margin: 0;
@@ -293,45 +326,79 @@ div.file-input.theme-nuvola {
   height: 20px;
   line-height: 20px; }
 
-.file-zoom-dialog .file-other-icon {
-  font-size: 22em;
-  font-size: 50vmin; }
-.file-zoom-dialog .modal-dialog {
-  width: auto; }
-.file-zoom-dialog .modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
-.file-zoom-dialog .btn-navigate {
-  padding: 0;
-  margin: 0;
-  background: transparent;
-  text-decoration: none;
-  outline: none;
-  opacity: 0.7;
-  top: 45%;
-  font-size: 4em;
-  color: #1c94c4; }
-  .file-zoom-dialog .btn-navigate:not([disabled]):hover {
+.file-zoom-dialog {
+  font-family: 'Lato', serif; }
+  .file-zoom-dialog a.btn-close {
+    margin: 10px; }
+  .file-zoom-dialog .kv-zoom-actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10; }
+  .file-zoom-dialog .file-other-icon {
+    font-size: 22em;
+    font-size: 50vmin; }
+  .file-zoom-dialog .modal-dialog {
+    width: auto; }
+  .file-zoom-dialog .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .file-zoom-dialog .btn-navigate {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    text-decoration: none;
     outline: none;
-    box-shadow: none;
-    opacity: 0.6; }
-.file-zoom-dialog .floating-buttons {
-  top: 5px;
-  right: 10px; }
-.file-zoom-dialog .btn-navigate[disabled] {
-  opacity: 0.3; }
-.file-zoom-dialog .btn-prev {
-  left: 1px; }
-.file-zoom-dialog .btn-next {
-  right: 1px; }
-.file-zoom-dialog .kv-zoom-title {
-  font-weight: 300;
-  color: #999;
-  max-width: 50%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
+    opacity: 0.7;
+    top: 45%;
+    font-size: 4em;
+    color: #ffffff; }
+    .file-zoom-dialog .btn-navigate:not([disabled]):hover {
+      outline: none;
+      box-shadow: none;
+      opacity: 0.6; }
+  .file-zoom-dialog .floating-buttons {
+    top: 5px;
+    right: 10px; }
+  .file-zoom-dialog .btn-navigate[disabled] {
+    opacity: 0.3; }
+  .file-zoom-dialog .btn-prev {
+    left: -80px; }
+  .file-zoom-dialog .btn-next {
+    right: -80px; }
+  .file-zoom-dialog .modal-body .kv-zoom-content-footer {
+    font-size: 12px;
+    max-width: 70%;
+    margin: 0 auto;
+    color: #1d5b78;
+    text-align: center;
+    clear: both;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .file-zoom-dialog .modal-body .kv-zoom-title {
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .file-zoom-dialog .file-zoom-content {
+    height: 470px;
+    line-height: 470px;
+    text-align: center;
+    overflow: hidden; }
+    .file-zoom-dialog .file-zoom-content .file-preview-image {
+      max-height: 100%;
+      vertical-align: middle; }
+    .file-zoom-dialog .file-zoom-content .file-preview-video {
+      max-height: 100%; }
+    .file-zoom-dialog .file-zoom-content .is-portrait-gt4 {
+      margin-top: 60px; }
+    .file-zoom-dialog .file-zoom-content > .file-object.type-image {
+      height: auto;
+      min-height: inherit; }
+    .file-zoom-dialog .file-zoom-content > .file-object.type-audio {
+      width: auto;
+      height: 30px; }
 
 .file-input-new .no-browse .form-control {
   border-top-right-radius: 4px;
@@ -412,22 +479,6 @@ div.file-input.theme-nuvola {
     margin-left: 3px;
     z-index: 3000; }
 
-.file-zoom-content {
-  height: 480px;
-  text-align: center; }
-  .file-zoom-content .file-preview-image {
-    max-height: 100%; }
-  .file-zoom-content .file-preview-video {
-    max-height: 100%; }
-  .file-zoom-content .is-portrait-gt4 {
-    margin-top: 60px; }
-  .file-zoom-content > .file-object.type-image {
-    height: auto;
-    min-height: inherit; }
-  .file-zoom-content > .file-object.type-audio {
-    width: auto;
-    height: 30px; }
-
 @media screen and (max-width: 767px) {
   .file-zoom-dialog .modal-header {
     flex-direction: column; } }
@@ -447,9 +498,6 @@ div.file-input.theme-nuvola {
 
 .clickable .file-drop-zone-title {
   cursor: pointer; }
-
-.kv-zoom-actions .btn-kv {
-  margin-left: 3px; }
 
 .file-preview-initial.sortable-chosen {
   background-color: #d9edf7; }

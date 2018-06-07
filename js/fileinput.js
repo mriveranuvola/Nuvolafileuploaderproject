@@ -690,8 +690,7 @@
             tBtnLink = '<a href="{href}" tabindex="500" title="{title}" class="{css}" {status}>{icon} {label}</a>';
             //noinspection HtmlUnknownAttribute
             tBtnBrowse = '<div tabindex="500" class="{css}" {status}>{icon} {label}</div>';
-            tModalMain = '<div id="' + $h.MODAL_ID + '" class="file-zoom-dialog modal fade" ' +
-                'tabindex="-1" aria-labelledby="' + $h.MODAL_ID + 'Label"></div>';
+            tModalMain ='<div id="' + $h.MODAL_ID + '" class="file-zoom-dialog modal fade" tabindex="-1" aria-labelledby=" " data-backdrop="static" data-keyboard="false"' + $h.MODAL_ID + 'Label"></div>';
             tModal = '<div class="modal-dialog modal-lg{rtl}" role="document">\n' +
                 '  <div class="modal-content">\n' +
                 '    <div class="modal-header">\n' +
@@ -1651,7 +1650,7 @@
             if (type === 'fullscreen' || type === 'borderless' || type === 'toggleheader') {
                 params += ' data-toggle="button" aria-pressed="false" autocomplete="off"';
             }
-            return '<button type="button" class="' + css + ' btn-' + type + '"' + params + '>' + label + '</button>';
+            return '<a class="' + css + ' btn-' + type + '"' + params + '>' + label + '</a>';
         },
         _getModalContent: function () {
             var self = this;
@@ -4253,10 +4252,10 @@
         previewThumbTags: {},
         initialPreviewShowDelete: true,
         initialPreviewDownloadUrl: '',
-        removeFromPreviewOnError: false,
+        removeFromPreviewOnError: true,
         deleteUrl: '',
         deleteExtraData: {},
-        overwriteInitial: true,
+        overwriteInitial: false,
         previewZoomButtonIcons: {
             prev: '<i class="glyphicon glyphicon-triangle-left"></i>',
             next: '<i class="glyphicon glyphicon-triangle-right"></i>',
@@ -4299,7 +4298,7 @@
         uploadUrlThumb: null,
         uploadAsync: true,
         uploadExtraData: {},
-        zoomModalHeight: 700,
+        zoomModalHeight: 600,
         minImageWidth: null,
         minImageHeight: null,
         maxImageWidth: null,
@@ -4343,7 +4342,7 @@
         mergeAjaxCallbacks: false,
         mergeAjaxDeleteCallbacks: false,
         retryErrorUploads: true,
-        reversePreviewOrder: true
+        reversePreviewOrder: false
     };
 
     $.fn.fileinputLocales.en = {
@@ -4419,6 +4418,94 @@
             fullscreen: 'Toggle full screen',
             borderless: 'Toggle borderless mode',
             close: 'Close detailed preview'
+        }
+    };
+
+    $.fn.fileinputLocales.es = {
+        title: 'Adjuntos',
+        fileSingle: 'archivo',
+        filePlural: 'archivos',
+        browseLabel: 'Examinar &hellip;',
+        removeLabel: 'Quitar',
+        removeTitle: 'Quitar archivos seleccionados',
+        cancelLabel: 'Cancelar',
+        cancelTitle: 'Abortar la subida en curso',
+        uploadLabel: 'Subir archivo',
+        uploadTitle: 'Subir archivos seleccionados',
+        msgNo: 'No',
+        msgNoFilesSelected: 'No hay archivos seleccionados',
+        msgCancelled: 'Cancelado',
+        msgPlaceholder: 'Seleccionar {files}...',
+        msgZoomModalHeading: 'Vista previa detallada',
+        msgFileRequired: 'Debes seleccionar un archivo para subir.',
+        msgSizeTooSmall: 'El archivo "{name}" (<b>{size} KB</b>) es demasiado pequeño y debe ser mayor de <b>{minSize} KB</b>.',
+        msgSizeTooLarge: 'El archivo "{name}" (<b>{size} KB</b>) excede el tamaño máximo permitido de <b>{maxSize} KB</b>.',
+        msgFilesTooLess: 'Debe seleccionar al menos <b>{n}</b> {files} a cargar.',
+        msgFilesTooMany: 'El número de archivos seleccionados a cargar <b>({n})</b> excede el límite máximo permitido de <b>{m}</b>.',
+        msgFileNotFound: 'Archivo "{name}" no encontrado.',
+        msgFileSecured: 'No es posible acceder al archivo "{name}" porque está siendo usado por otra aplicación o no tiene permisos de lectura.',
+        msgFileNotReadable: 'No es posible acceder al archivo "{name}".',
+        msgFilePreviewAborted: 'Previsualización del archivo "{name}" cancelada.',
+        msgFilePreviewError: 'Ocurrió un error mientras se leía el archivo "{name}".',
+        msgInvalidFileName: 'Caracteres no válidos o no soportados en el nombre del archivo "{name}".',
+        msgInvalidFileType: 'Tipo de archivo no válido para "{name}". Sólo se permiten archivos de tipo "{types}".',
+        msgInvalidFileExtension: 'Extensión de archivo no válida para "{name}". Sólo se permiten archivos "{extensions}".',
+        msgFileTypes: {
+            'image': 'image',
+            'html': 'HTML',
+            'text': 'text',
+            'video': 'video',
+            'audio': 'audio',
+            'flash': 'flash',
+            'pdf': 'PDF',
+            'object': 'object'
+        },
+        msgUploadAborted: 'La carga de archivos se ha cancelado',
+        msgUploadThreshold: 'Procesando...',
+        msgUploadBegin: 'Inicializando...',
+        msgUploadEnd: 'Hecho',
+        msgUploadEmpty: 'No existen datos válidos para el envío.',
+        msgUploadError: 'Error',
+        msgValidationError: 'Error de validación',
+        msgLoading: 'Subiendo archivo {index} de {files} &hellip;',
+        msgProgress: 'Subiendo archivo {index} de {files} - {name} - {percent}% completado.',
+        msgSelected: '{n} {files} seleccionado(s)',
+        msgFoldersNotAllowed: 'Arrastre y suelte únicamente archivos. Omitida(s) {n} carpeta(s).',
+        msgImageWidthSmall: 'El ancho de la imagen "{name}" debe ser de al menos {size} px.',
+        msgImageHeightSmall: 'La altura de la imagen "{name}" debe ser de al menos {size} px.',
+        msgImageWidthLarge: 'El ancho de la imagen "{name}" no puede exceder de {size} px.',
+        msgImageHeightLarge: 'La altura de la imagen "{name}" no puede exceder de {size} px.',
+        msgImageResizeError: 'No se pudieron obtener las dimensiones de la imagen para cambiar el tamaño.',
+        msgImageResizeException: 'Error al cambiar el tamaño de la imagen.<pre>{errors}</pre>',
+        msgAjaxError: 'Algo ha ido mal con la operación {operation}. Por favor, inténtelo de nuevo mas tarde.',
+        msgAjaxProgressError: 'La operación {operation} ha fallado',
+        ajaxOperations: {
+            deleteThumb: 'Archivo borrado',
+            uploadThumb: 'Archivo subido',
+            uploadBatch: 'Datos subidos en lote',
+            uploadExtra: 'Datos del formulario subidos '
+        },
+        dropZoneTitle: 'Arrastre y suelte aquí los archivos &hellip;',
+        dropZoneClickTitle: '<br>(o haga clic para seleccionar {files})',
+        fileActionSettings: {
+            removeTitle: 'Eliminar archivo',
+            uploadTitle: 'Subir archivo',
+            uploadRetryTitle: 'Reintentar subir',
+            downloadTitle: 'Descargar archivo',
+            zoomTitle: 'Ver detalles',
+            dragTitle: 'Mover / Reordenar',
+            indicatorNewTitle: 'No subido todavía',
+            indicatorSuccessTitle: 'Subido',
+            indicatorErrorTitle: 'Error al subir',
+            indicatorLoadingTitle: 'Subiendo...'
+        },
+        previewZoomButtonTitles: {
+            prev: 'Anterior',
+            next: 'Siguiente',
+            toggleheader: 'Mostrar encabezado',
+            fullscreen: 'Pantalla completa',
+            borderless: 'Modo sin bordes',
+            close: 'Cerrar vista detallada'
         }
     };
 
