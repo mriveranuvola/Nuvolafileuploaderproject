@@ -15,19 +15,19 @@
   width: 0;
   height: 0; }
 
-.kv-hidden, .hide-content .kv-file-content, .file-caption-icon, .file-zoom-dialog .modal-header:before, .file-zoom-dialog .modal-header:after, .file-input-new .file-preview, .file-input-new .close, .file-input-new .glyphicon-file, .file-input-new .fileinput-remove-button, .file-input-new .fileinput-upload-button, .file-input-new .no-browse .input-group-btn, .file-input-ajax-new .fileinput-remove-button, .file-input-ajax-new .fileinput-upload-button, .file-input-ajax-new .no-browse .input-group-btn {
+.kv-hidden, .hide-content .kv-file-content, div.file-input.theme-nuvola .file-caption-icon, .file-zoom-dialog .modal-header:before, .file-zoom-dialog .modal-header:after, .file-input-new .file-preview, .file-input-new .close, .file-input-new .glyphicon-file, .file-input-new .fileinput-remove-button, .file-input-new .fileinput-upload-button, .file-input-new .no-browse .input-group-btn, .file-input-ajax-new .fileinput-remove-button, .file-input-ajax-new .fileinput-upload-button, .file-input-ajax-new .no-browse .input-group-btn {
   display: none; }
 
-div.file-input.theme-nuvola .btn-file input[type=file], .file-caption-icon, .file-preview .fileinput-remove, .krajee-default .file-thumb-progress, .file-zoom-dialog .btn-navigate, .file-zoom-dialog .floating-buttons {
+div.file-input.theme-nuvola .btn-file input[type=file], div.file-input.theme-nuvola .file-preview .fileinput-remove, div.file-input.theme-nuvola .file-caption-icon, .krajee-default .file-thumb-progress, .file-zoom-dialog .btn-navigate, .file-zoom-dialog .floating-buttons {
   position: absolute; }
 
-.file-loading:before, div.file-input.theme-nuvola .btn-file, .file-caption, .file-preview, .krajee-default.file-preview-frame, .krajee-default .file-thumbnail-footer, .file-zoom-dialog .modal-dialog {
+.file-loading:before, .nuvolafileuploaderModalBtn, div.file-input.theme-nuvola .btn-file, div.file-input.theme-nuvola .file-preview, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb, div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image, div.file-input.theme-nuvola .file-caption, .krajee-default.file-preview-frame, .krajee-default .file-thumbnail-footer, .file-zoom-dialog .modal-dialog {
   position: relative; }
 
-.file-error-message pre, .file-error-message ul, .krajee-default .file-actions, .krajee-default .file-other-error {
+div.file-input.theme-nuvola .file-error-message pre, div.file-input.theme-nuvola .file-error-message ul, .krajee-default .file-actions, .krajee-default .file-other-error {
   text-align: left; }
 
-.file-error-message pre, .file-error-message ul {
+div.file-input.theme-nuvola .file-error-message pre, div.file-input.theme-nuvola .file-error-message ul {
   margin: 0; }
 
 .krajee-default .file-drag-handle, .krajee-default .file-upload-indicator {
@@ -89,7 +89,30 @@ div.file-input.theme-nuvola .btn-file input[type=file], .file-caption-icon, .fil
   font-size: 13px;
   font-variant: small-caps;
   color: #999;
-  background: transparent url(../img/loading.gif) top left no-repeat; }
+  background: transparent url(../../img/loading.gif) top left no-repeat; }
+
+.nuvolafileuploaderModalBtn, div.file-input.theme-nuvola .btn-file {
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 30px;
+  background-color: #bbbbbb;
+  color: #fff;
+  overflow: hidden;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0px; }
+  .nuvolafileuploaderModalBtn:hover, div.file-input.theme-nuvola .btn-file:hover {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 35px;
+    color: #fff; }
+  .nuvolafileuploaderModalBtn:active, div.file-input.theme-nuvola .btn-file:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
 div.file-input.theme-nuvola {
   font-family: 'Lato', serif;
@@ -100,93 +123,113 @@ div.file-input.theme-nuvola {
   div.file-input.theme-nuvola .file-header span {
     color: #1d5b78;
     font-size: 24px; }
-  div.file-input.theme-nuvola .btn-file {
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 30px;
-    background-color: #bbbbbb;
-    color: #fff;
-    overflow: hidden;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center; }
-    div.file-input.theme-nuvola .btn-file:hover {
-      cursor: pointer;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
-      border-radius: 35px; }
-    div.file-input.theme-nuvola .btn-file:active {
-      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-    div.file-input.theme-nuvola .btn-file input[type=file] {
-      top: 0;
-      right: 0;
-      min-width: 100%;
-      min-height: 100%;
-      text-align: right;
-      opacity: 0;
-      background: none repeat scroll 0 0 transparent;
-      cursor: inherit;
-      display: block; }
-    div.file-input.theme-nuvola .btn-file ::-ms-browse {
-      font-size: 10000px;
-      width: 100%;
-      height: 100%; }
-
-.file-caption .file-caption-name {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  border: none;
-  background: none;
-  outline: none; }
-.file-caption.icon-visible .file-caption-icon {
-  display: inline-block; }
-.file-caption.icon-visible .file-caption-name {
-  padding-left: 15px; }
-
-.file-caption-icon {
-  left: 8px; }
-
-.file-error-message {
-  color: #a94442;
-  background-color: #f2dede;
-  margin: 5px;
-  border: 1px solid #ebccd1;
-  border-radius: 4px;
-  padding: 15px; }
-  .file-error-message pre {
-    margin: 5px 0; }
-
-.file-caption-disabled {
-  background-color: #eee;
-  cursor: not-allowed;
-  opacity: 1; }
-
-.file-preview {
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  padding: 8px;
-  width: 100%;
-  margin-bottom: 5px; }
-  .file-preview .btn-xs {
-    padding: 1px 5px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px; }
-  .file-preview .fileinput-remove {
-    top: 1px;
-    right: 1px;
-    line-height: 10px; }
-  .file-preview .clickable {
-    cursor: pointer; }
-
-.file-preview-image {
-  font: 40px Impact, Charcoal, sans-serif;
-  color: #008000; }
+  div.file-input.theme-nuvola .btn-file input[type=file] {
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    background: none repeat scroll 0 0 transparent;
+    cursor: inherit;
+    display: block; }
+  div.file-input.theme-nuvola .btn-file ::-ms-browse {
+    font-size: 10000px;
+    width: 100%;
+    height: 100%; }
+  div.file-input.theme-nuvola .file-preview {
+    padding: 8px;
+    margin-bottom: 5px; }
+    div.file-input.theme-nuvola .file-preview .btn-xs {
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.5;
+      border-radius: 3px; }
+    div.file-input.theme-nuvola .file-preview .fileinput-remove {
+      top: 1px;
+      right: 1px;
+      line-height: 10px; }
+    div.file-input.theme-nuvola .file-preview .clickable {
+      cursor: pointer; }
+    div.file-input.theme-nuvola .file-preview .file-preview-thumbnails {
+      width: 661px;
+      margin: 0 auto; }
+    div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb {
+      width: 150px;
+      margin: 5px;
+      display: inline-block; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-preview-caption {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+        width: 150px;
+        overflow: hidden;
+        color: #1d5b78;
+        font-size: 11px;
+        font-weight: 700; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image {
+        text-align: center;
+        height: 100px;
+        overflow: hidden;
+        border: 1.5px solid #cccccc;
+        border-radius: 5px;
+        background-color: #e4e4e4;
+        transition: transform .2s;
+        /* Animation */ }
+        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.image img {
+          width: auto;
+          height: 100px;
+          max-height: none !important;
+          max-width: none !important;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          transition: transform .2s;
+          /* Animation */ }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-actions {
+        position: absolute;
+        top: calc(50% - 5px);
+        left: 0;
+        text-align: center;
+        width: 100%;
+        display: none; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .file-actions {
+        display: block; }
+      div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb:hover .kv-file-content.image {
+        border: 1.5px solid #1d5b78;
+        transform: scale(1.2);
+        z-index: 15; }
+  div.file-input.theme-nuvola .file-caption .file-caption-name {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    background: none;
+    outline: none; }
+  div.file-input.theme-nuvola .file-caption.icon-visible .file-caption-icon {
+    display: inline-block; }
+  div.file-input.theme-nuvola .file-caption.icon-visible .file-caption-name {
+    padding-left: 15px; }
+  div.file-input.theme-nuvola .file-caption-icon {
+    left: 8px; }
+  div.file-input.theme-nuvola .file-error-message {
+    color: #a94442;
+    background-color: #f2dede;
+    margin: 5px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    padding: 15px; }
+    div.file-input.theme-nuvola .file-error-message pre {
+      margin: 5px 0; }
+  div.file-input.theme-nuvola .file-caption-disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+    opacity: 1; }
+  div.file-input.theme-nuvola .file-preview-image {
+    font: 40px Impact, Charcoal, sans-serif;
+    color: #008000; }
 
 .krajee-default.file-preview-frame {
   margin: 8px;
@@ -302,7 +345,7 @@ div.file-input.theme-nuvola {
   width: 100%; }
 
 .file-thumb-loading {
-  background: transparent url(../img/loading.gif) no-repeat scroll center center content-box !important; }
+  background: transparent url(../../img/loading.gif) no-repeat scroll center center content-box !important; }
 
 .file-drop-zone {
   border: 1px dashed #aaa;
@@ -317,7 +360,11 @@ div.file-input.theme-nuvola {
   .file-drop-zone.clickable:focus {
     border: 2px solid #5acde2; }
   .file-drop-zone .file-preview-thumbnails {
-    cursor: default; }
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
 
 .file-drop-zone-title {
   color: #aaa;
@@ -330,7 +377,7 @@ div.file-input.theme-nuvola {
   background-color: #eee; }
 
 .file-uploading {
-  background: url(../img/loading-sm.gif) no-repeat center bottom 10px;
+  background: url(../../img/loading-sm.gif) no-repeat center bottom 10px;
   opacity: 0.65; }
 
 @media (min-width: 576px) {
@@ -382,19 +429,13 @@ div.file-input.theme-nuvola {
     height: 30px; }
 
 @media screen and (max-width: 767px) {
-  .file-preview-thumbnails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; }
-
   .file-zoom-dialog .modal-header {
     flex-direction: column; } }
 @media screen and (max-width: 350px) {
   .krajee-default.file-preview-frame .kv-file-content {
     width: 160px; } }
 .file-loading[dir=rtl]:before {
-  background: transparent url(../img/loading.gif) top right no-repeat;
+  background: transparent url(../../img/loading.gif) top right no-repeat;
   padding-left: 0;
   padding-right: 20px; }
 

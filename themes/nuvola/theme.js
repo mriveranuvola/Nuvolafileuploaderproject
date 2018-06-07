@@ -19,15 +19,58 @@
             '<div class = "toolbar">' +
             '   {browse}\n' +
             '</div>',*/
-            footer:'',
-            actions:'',
-            zoomCache:'',
-            fileIcon:'',
-            main2:  '<div class="file-header"><span>{title}</span> {browse}</div>' +
+
+            footer  :'<div class="file-preview-caption">' +
+            '           {caption}' +
+            '         </div>'+
+            '        {progress}'+
+            '        {actions}',
+
+            actions :'<div class="file-actions">\n' +
+            '               {upload} {download} {delete} {zoom} {other} ' +
+            '         </div>',
+
+            preview : '<div class="file-preview {class}">' +
+            '               <div class="{dropClass}">' +
+            '               <div class="file-preview-thumbnails nuvola-thumbs">' +
+            '               </div>' +
+            '               <div class="clearfix"></div>' +
+            '               <div class="file-preview-status text-center text-success"></div>' +
+            '               <div class="kv-fileinput-error"></div>' +
+            '               </div>' +
+            '           </div>',
+
+            btnBrowse:'<div tabindex="500" class="pull-right btn-file" {status}>{icon}</div>',
+
+            caption  :/*'<span class="file-caption nuvola-caption" tabindex="500">\n' +
+                        '   <span class="file-caption-name"> </span>' +
+                        ' ' +
+                      '</span>'*/ '',
+
+            main1:  '<div class="file-header"><span>{title}</span>{caption} {browse}</div>' +
                     '<div class="kv-upload-progress kv-hidden"></div>' +
                     '<div class="clearfix"></div>'+
                     '{preview}',
-            btnBrowse:'<div tabindex="500" class="pull-right btn-file" {status}>{icon}</div>'
+
+        },
+
+        previewMarkupTags: {
+            tagBefore1:
+            '<div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}" data-template="{template}">' +
+            '{footer}'+
+            '<div class="kv-file-content image">',
+            tagBefore2:
+            '<div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}" data-template="{template}" title="{caption}">'+
+            '{footer}'+
+            '<div class="kv-file-content image2">',
+            tagAfter:
+               ''
+        },
+        previewContentTemplates: {
+           image:'<img src="{data}" class="file-preview-image kv-preview-data" title="{caption}" alt="{caption}">'
+        },
+        previewSettings: {
+            image: {height: "100px", width:"auto"},
         },
         fileActionSettings: {
             removeIcon: '<i class="fa fa-trash"></i>',

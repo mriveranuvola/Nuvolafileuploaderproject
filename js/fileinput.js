@@ -61,6 +61,7 @@
         MODAL_EVENTS: ['show', 'shown', 'hide', 'hidden', 'loaded'],
         objUrl: window.URL || window.webkitURL,
         compare: function (input, str, exact) {
+            console.log({input:input,string:str, compare: exact});
             return input !== undefined && (exact ? input === str : input.match(str));
         },
         isIE: function (ver) {
@@ -665,16 +666,16 @@
                 '{cancel}\n' +
                 '{upload}\n' +
                 '{browse}\n';
-            tPreview = '<div class="file-preview {class}">\n' +
-                '    {close}' +
-                '    <div class="{dropClass}">\n' +
-                '    <div class="file-preview-thumbnails">\n' +
-                '    </div>\n' +
-                '    <div class="clearfix"></div>' +
-                '    <div class="file-preview-status text-center text-success"></div>\n' +
-                '    <div class="kv-fileinput-error"></div>\n' +
-                '    </div>\n' +
-                '</div>';
+            tPreview = '<div class="file-preview {class}">' +
+                '           {close}' +
+                '           <div class="{dropClass}">' +
+                '               <div class="file-preview-thumbnails">' +
+                '               </div>' +
+                '               <div class="clearfix"></div>' +
+                '               <div class="file-preview-status text-center text-success"></div>' +
+                '               <div class="kv-fileinput-error"></div>' +
+                '           </div>' +
+                '       </div>';
             tClose = $h.closeButton('fileinput-remove');
             tFileIcon = '<i class="glyphicon glyphicon-file"></i>';
             // noinspection HtmlUnknownAttribute
@@ -4220,17 +4221,17 @@
 
     $.fn.fileinput.defaults = {
         language: 'en',
-        showCaption: false,
+        showCaption: true,
         showBrowse: true,
         showPreview: true,
         showRemove: true,
-        showUpload: false,
+        showUpload: true,
         showCancel: true,
-        showClose: false,
+        showClose: true,
         showUploadedThumbs: true,
         browseOnZoneClick: true,
         autoReplace: false,
-        autoOrientImage: true, // for JPEG images based on EXIF orientation tag
+        autoOrientImage: false, // for JPEG images based on EXIF orientation tag
         required: false,
         rtl: false,
         hideThumbnailContent: false,
@@ -4298,7 +4299,7 @@
         uploadUrlThumb: null,
         uploadAsync: true,
         uploadExtraData: {},
-        zoomModalHeight: 480,
+        zoomModalHeight: 700,
         minImageWidth: null,
         minImageHeight: null,
         maxImageWidth: null,
@@ -4342,7 +4343,7 @@
         mergeAjaxCallbacks: false,
         mergeAjaxDeleteCallbacks: false,
         retryErrorUploads: true,
-        reversePreviewOrder: false
+        reversePreviewOrder: true
     };
 
     $.fn.fileinputLocales.en = {
