@@ -10,7 +10,8 @@
  * Licensed under the BSD 3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:100i,300i,400i,700i");
 .file-loading input[type=file], div.file-input.theme-nuvola input[type=file].file-loading {
   width: 0;
   height: 0; }
@@ -147,7 +148,11 @@ div.file-input.theme-nuvola {
     height: 100%; }
   div.file-input.theme-nuvola .file-preview {
     padding: 8px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    height: 270px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative; }
     div.file-input.theme-nuvola .file-preview .btn-xs {
       padding: 1px 5px;
       font-size: 12px;
@@ -184,15 +189,15 @@ div.file-input.theme-nuvola {
         background-color: #e4e4e4;
         transition: transform .2s;
         /* Animation */ }
-        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.content-wrapper img {
+        div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .kv-file-content.content-wrapper .kv-preview-data {
           width: auto;
-          height: 100px;
+          height: 100%;
           max-height: none !important;
           max-width: none !important;
           position: absolute;
           left: 50%;
-          top: 0;
-          transform: translateX(-50%);
+          top: 50%;
+          transform: translate(-50%, -50%);
           transition: transform .2s;
           /* Animation */ }
       div.file-input.theme-nuvola .file-preview .file-preview-frame.nuvola-frame.kv-preview-thumb .file-thumb-progress {
@@ -260,9 +265,6 @@ div.file-input.theme-nuvola {
     background-color: #eee;
     cursor: not-allowed;
     opacity: 1; }
-  div.file-input.theme-nuvola .file-preview-image {
-    font: 40px Impact, Charcoal, sans-serif;
-    color: #008000; }
 
 .krajee-default.file-preview-frame {
   margin: 8px;
@@ -328,8 +330,8 @@ div.file-input.theme-nuvola {
 
 .file-zoom-dialog {
   font-family: 'Lato', serif; }
-  .file-zoom-dialog a.btn-close {
-    margin: 10px; }
+  .file-zoom-dialog a.btn-close i {
+    margin: 12px; }
   .file-zoom-dialog .kv-zoom-actions {
     position: absolute;
     top: 0;
@@ -501,5 +503,98 @@ div.file-input.theme-nuvola {
 
 .file-preview-initial.sortable-chosen {
   background-color: #d9edf7; }
+
+.file-input div.file-preview {
+  /*
+   * Container style
+   */
+  /*
+   * Scrollbar rail styles
+   */
+  /*
+   * Scrollbar thumb styles
+   */
+  /* MS supports */ }
+  .file-input div.file-preview .ps {
+    overflow: hidden !important;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto; }
+  .file-input div.file-preview .ps__rail-x {
+    display: none;
+    opacity: 0;
+    transition: background-color .2s linear, opacity .2s linear;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
+    height: 15px;
+    /* there must be 'bottom' or 'top' for ps__rail-x */
+    bottom: 0px;
+    /* please don't change 'position' */
+    position: absolute; }
+  .file-input div.file-preview .ps__rail-y {
+    display: none;
+    opacity: 0;
+    transition: background-color .2s linear, opacity .2s linear;
+    -webkit-transition: background-color .2s linear, opacity .2s linear;
+    width: 15px;
+    /* there must be 'right' or 'left' for ps__rail-y */
+    right: 0;
+    /* please don't change 'position' */
+    position: absolute; }
+  .file-input div.file-preview .ps--active-x > .ps__rail-x,
+  .file-input div.file-preview .ps--active-y > .ps__rail-y {
+    display: block;
+    background-color: transparent; }
+  .file-input div.file-preview .ps:hover > .ps__rail-x,
+  .file-input div.file-preview .ps:hover > .ps__rail-y,
+  .file-input div.file-preview .ps--focus > .ps__rail-x,
+  .file-input div.file-preview .ps--focus > .ps__rail-y,
+  .file-input div.file-preview .ps--scrolling-x > .ps__rail-x,
+  .file-input div.file-preview .ps--scrolling-y > .ps__rail-y {
+    opacity: 0.6; }
+  .file-input div.file-preview .ps .ps__rail-x:hover,
+  .file-input div.file-preview .ps .ps__rail-y:hover,
+  .file-input div.file-preview .ps .ps__rail-x:focus,
+  .file-input div.file-preview .ps .ps__rail-y:focus,
+  .file-input div.file-preview .ps .ps__rail-x.ps--clicking,
+  .file-input div.file-preview .ps .ps__rail-y.ps--clicking {
+    background-color: #eee;
+    opacity: 0.9; }
+  .file-input div.file-preview .ps__thumb-x {
+    background-color: #aaa;
+    border-radius: 6px;
+    transition: background-color .2s linear, height .2s ease-in-out;
+    -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+    height: 6px;
+    /* there must be 'bottom' for ps__thumb-x */
+    bottom: 2px;
+    /* please don't change 'position' */
+    position: absolute; }
+  .file-input div.file-preview .ps__thumb-y {
+    background-color: #aaa;
+    border-radius: 6px;
+    transition: background-color .2s linear, width .2s ease-in-out;
+    -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+    width: 6px;
+    /* there must be 'right' for ps__thumb-y */
+    right: 2px;
+    /* please don't change 'position' */
+    position: absolute; }
+  .file-input div.file-preview .ps__rail-x:hover > .ps__thumb-x,
+  .file-input div.file-preview .ps__rail-x:focus > .ps__thumb-x,
+  .file-input div.file-preview .ps__rail-x.ps--clicking .ps__thumb-x {
+    background-color: #999;
+    height: 11px; }
+  .file-input div.file-preview .ps__rail-y:hover > .ps__thumb-y,
+  .file-input div.file-preview .ps__rail-y:focus > .ps__thumb-y,
+  .file-input div.file-preview .ps__rail-y.ps--clicking .ps__thumb-y {
+    background-color: #999;
+    width: 11px; }
+  @supports (-ms-overflow-style: none) {
+    .file-input div.file-preview .ps {
+      overflow: auto !important; } }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .file-input div.file-preview .ps {
+      overflow: auto !important; } }
 
 /*# sourceMappingURL=theme.css.map */

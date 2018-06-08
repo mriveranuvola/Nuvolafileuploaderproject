@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f2262d3-af2a-42fb-b60f-4427e770f71b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/js/plugins/perfect-scrollbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/fileinput.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fileinput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/locales/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/locales/es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preview/prev_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/prev_10.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/nuvola/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/nuvola/theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/nuvola/theme.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/themes/nuvola/theme.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/nuvola/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/themes/nuvola/theme.js" afterDir="false" />
@@ -25,25 +26,28 @@
     <favorites_list name="Nuvolafileuploaderproject" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.57924205">
+    <splitter split-orientation="horizontal" split-proportion="0.79379565">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.47172618">
+        <splitter split-orientation="horizontal" split-proportion="0.4653324">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="14">
-                      <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+                    <state relative-caret-position="434">
+                      <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="45" selection-end-column="13" />
+                      <folding>
+                        <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="theme.scss" pinned="false" current-in-tab="true">
+              <file leaf-file-name="theme.scss" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="449">
-                      <caret line="581" selection-start-line="581" selection-end-line="581" />
+                    <state relative-caret-position="67">
+                      <caret line="307" column="36" lean-forward="true" selection-start-line="307" selection-start-column="36" selection-end-line="307" selection-end-column="36" />
                     </state>
                   </provider>
                 </entry>
@@ -52,11 +56,26 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="fileinput.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/js/fileinput.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-2687">
+                      <caret line="791" column="34" lean-forward="true" selection-start-line="791" selection-start-column="34" selection-end-line="791" selection-end-column="34" />
+                      <folding>
+                        <element signature="e#79#86#1" expanded="true" />
+                        <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                        <element signature="e#47#53#1" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
               <file leaf-file-name="theme.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="689">
-                      <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+                    <state relative-caret-position="375">
+                      <caret line="288" column="34" selection-start-line="288" selection-start-column="34" selection-end-line="288" selection-end-column="34" />
                     </state>
                   </provider>
                 </entry>
@@ -70,8 +89,8 @@
           <file leaf-file-name="fileinput.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/fileinput.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="528">
-                  <caret line="4266" column="6" selection-start-line="4266" selection-start-column="6" selection-end-line="4273" selection-end-column="9" />
+                <state relative-caret-position="-1071">
+                  <caret line="842" column="9" lean-forward="true" selection-start-line="842" selection-start-column="9" selection-end-line="842" selection-end-column="9" />
                   <folding>
                     <element signature="e#79#86#1" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -97,36 +116,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>file-thumb-progress</find>
-      <find>700</find>
-      <find>nuvolafileuploaderModal</find>
-      <find>modalMain</find>
-      <find>tModalMain</find>
-      <find>fa-caret-right</find>
-      <find>.kv-zoom-title</find>
-      <find>500</find>
-      <find>content-footer</find>
-      <find>file-zoom-content</find>
-      <find>@</find>
-      <find>pull-</find>
-      <find>kv-zoom-actions</find>
-      <find>previewZoomButtonClasses:</find>
-      <find>previewZoom</find>
-      <find>00</find>
-      <find>toggle</find>
-      <find>toggleFullScreen</find>
-      <find>toggleheader</find>
-      <find>toggleheader:</find>
-      <find>tPrev</find>
-      <find>tPrev\w*:</find>
-      <find>\HtPrev\w*:</find>
-      <find>error:</find>
-      <find>button</find>
-      <find>&lt;button</find>
-      <find>_getZoomButton</find>
-      <find>previewZoomButtonIcons</find>
-      <find>btn-close</find>
-      <find>-close</find>
+      <find>console.lo</find>
+      <find>file</find>
+      <find>font-fam</find>
+      <find>fa-file</find>
+      <find>previewFileIcon</find>
+      <find>tPdf</find>
+      <find>previewMarkupTags</find>
+      <find>tagAfter</find>
+      <find>previewContentTemplates</find>
+      <find>previewTemplates</find>
+      <find>$.exte</find>
+      <find>console.log</find>
+      <find>_getPreviewIcon</find>
+      <find>$h.pScr</find>
+      <find>pScr</find>
+      <find>264px</find>
+      <find>:</find>
+      <find>previewFileExtSettings:</find>
+      <find>allowedPreviewTypes</find>
+      <find>allowedPreviewTypes:</find>
+      <find>_parseFileType</find>
+      <find>fileTypeSettings</find>
+      <find>fileTypeSettings:</find>
+      <find>previewFileExtSettings</find>
+      <find>other</find>
+      <find>{style}</find>
+      <find>img</find>
+      <find>\n</find>
+      <find>&lt;img</find>
+      <find>line-he</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,6 +167,8 @@
         <option value="$PROJECT_DIR$/scss/fileinput.scss" />
         <option value="$PROJECT_DIR$/themes/explorer-fas/theme.js" />
         <option value="$PROJECT_DIR$/js/locales/es.js" />
+        <option value="$PROJECT_DIR$/js/trest" />
+        <option value="$PROJECT_DIR$/js/plugins/perfect-scrollbar.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/fileinput.js" />
         <option value="$PROJECT_DIR$/themes/nuvola/theme.js" />
@@ -167,10 +188,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2560" />
-    <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1418" />
+    <option name="x" value="-2635" />
+    <option name="y" value="31" />
+    <option name="width" value="2561" />
+    <option name="height" value="1370" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -178,7 +199,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,35 +206,26 @@
               <item name="Nuvolafileuploaderproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="Nuvolafileuploaderproject" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Nuvolafileuploaderproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Nuvolafileuploaderproject" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Nuvolafileuploaderproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Nuvolafileuploaderproject" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="locales" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.CSS" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/themes/nuvola" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -253,16 +264,16 @@
       <workItem from="1528387416249" duration="259000" />
       <workItem from="1528387702839" duration="354000" />
       <workItem from="1528388073589" duration="841000" />
-      <workItem from="1528388931792" duration="15807000" />
+      <workItem from="1528388931792" duration="31254000" />
+      <workItem from="1528463662646" duration="16214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74045000" />
+    <option name="totallyTimeSpent" value="105706000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2560" y="22" width="2560" height="1418" extended-state="6" />
-    <editor active="true" />
+    <frame x="-2560" y="22" width="2560" height="1418" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -271,11 +282,12 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.329296" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.37850115" visible="true" weight="0.07783955" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.335352" visible="true" weight="0.12946783" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.6214989" side_tool="true" weight="0.08300238" />
-      <window_info id="Favorites" order="2" sideWeight="0.5021978" side_tool="true" weight="0.10969116" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329296" />
+      <window_info id="Structure" order="1" sideWeight="0.94549584" side_tool="true" weight="0.12867355" />
+      <window_info id="Favorites" order="2" sideWeight="0.664648" side_tool="true" visible="true" weight="0.12946783" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -283,7 +295,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,45 +331,82 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>2858</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>552</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>967</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>867</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>1323</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>1340</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>1362</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>2881</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>2873</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>2938</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/fileinput.js</url>
+          <line>2944</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/themes/nuvola/theme.js</url>
+          <line>277</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="22" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5726">
-          <caret line="409" selection-start-line="409" selection-end-line="409" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/explorer/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/fileinput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60886">
@@ -608,17 +656,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/plugins/perfect-scrollbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state relative-caret-position="1246">
+          <caret line="1323" column="5" lean-forward="true" selection-start-line="1323" selection-start-column="5" selection-end-line="1323" selection-end-column="5" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/trest" />
+    <entry file="file://$PROJECT_DIR$/js/fileinput.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8212">
+          <caret line="10" column="27892" selection-start-line="10" selection-start-column="27892" selection-end-line="10" selection-end-column="27892" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/prev_10.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preview/prev_1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/fileinput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="4266" column="6" selection-start-line="4266" selection-start-column="6" selection-end-line="4273" selection-end-column="9" />
+        <state relative-caret-position="-2687">
+          <caret line="791" column="34" lean-forward="true" selection-start-line="791" selection-start-column="34" selection-end-line="791" selection-end-column="34" />
           <folding>
             <element signature="e#79#86#1" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -628,17 +690,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.js">
+    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+        <state relative-caret-position="67">
+          <caret line="307" column="36" lean-forward="true" selection-start-line="307" selection-start-column="36" selection-end-line="307" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.scss">
+    <entry file="file://$PROJECT_DIR$/themes/nuvola/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="581" selection-start-line="581" selection-end-line="581" />
+        <state relative-caret-position="375">
+          <caret line="288" column="34" selection-start-line="288" selection-start-column="34" selection-end-line="288" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="45" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

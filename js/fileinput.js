@@ -48,20 +48,20 @@
     $h = {
         FRAMES: '.kv-preview-thumb',
         SORT_CSS: 'file-sortable',
-        OBJECT_PARAMS: '<param name="controller" value="true" />\n' +
-        '<param name="allowFullScreen" value="true" />\n' +
-        '<param name="allowScriptAccess" value="always" />\n' +
-        '<param name="autoPlay" value="false" />\n' +
-        '<param name="autoStart" value="false" />\n' +
-        '<param name="quality" value="high" />\n',
-        DEFAULT_PREVIEW: '<div class="file-preview-other">\n' +
-        '<span class="{previewFileIconClass}">{previewFileIcon}</span>\n' +
-        '</div>',
+        OBJECT_PARAMS:  '<param name="controller" value="true" />\n' +
+                        '<param name="allowFullScreen" value="true" />\n' +
+                        '<param name="allowScriptAccess" value="always" />\n' +
+                        '<param name="autoPlay" value="false" />\n' +
+                        '<param name="autoStart" value="false" />\n' +
+                        '<param name="quality" value="high" />\n',
+        DEFAULT_PREVIEW:'<div class="file-preview-other">' +
+                        '   <span class="{previewFileIconClass}">{previewFileIcon}</span>'+
+                        '</div>',
         MODAL_ID: 'kvFileinputModal',
         MODAL_EVENTS: ['show', 'shown', 'hide', 'hidden', 'loaded'],
         objUrl: window.URL || window.webkitURL,
         compare: function (input, str, exact) {
-            console.log({input:input,string:str, compare: exact});
+
             return input !== undefined && (exact ? input === str : input.match(str));
         },
         isIE: function (ver) {
@@ -263,6 +263,7 @@
             return str.match(/^\s*<\?xml/i) && (str.match(/<!DOCTYPE svg/i) || str.match(/<svg/i));
         },
         getMimeType: function (signature, contents, type) {
+            console.log('getMimeType',{signature:signature,contents:contents,type:type});
             switch (signature) {
                 case "ffd8ffe0":
                 case "ffd8ffe1":
@@ -493,6 +494,21 @@
             return '<button type="button" class="' + css + '" aria-label="Close">\n' +
                 '  <span aria-hidden="true">&times;</span>\n' +
                 '</button>';
+        },
+        pScroll: new function(){
+            var ps = this;
+            ps.ps = {};
+            ps.init = function(){
+                ps.ps = new PerfectScrollbar('.file-input div.file-preview',{
+                    minScrollbarLength: 3,
+                    suppressScrollX : true
+
+                });
+            }
+
+            ps.update = function () {
+                ps.ps.update();
+            }
         }
     };
     FileInput = function (element, options) {
@@ -740,29 +756,29 @@
                 ' data-template="{template}"';
             tTagBef1 = tTagBef + '><div class="kv-file-content">\n';
             tTagBef2 = tTagBef + ' title="{caption}"><div class="kv-file-content">\n';
-            tTagAft = '</div>{footer}\n</div>\n';
-            tGeneric = '{content}\n';
-            tStyle = ' {style}';
-            tHtml = '<div class="kv-preview-data file-preview-html" title="{caption}"' + tStyle + '>{data}</div>\n';
-            tImage = '<img src="{data}" class="file-preview-image kv-preview-data" title="{caption}" ' +
-                'alt="{caption}"' + tStyle + '>\n';
-            tText = '<textarea class="kv-preview-data file-preview-text" title="{caption}" readonly' + tStyle + '>' +
-                '{data}</textarea>\n';
-            tOffice = '<iframe class="kv-preview-data file-preview-office" ' +
-                'src="https://view.officeapps.live.com/op/embed.aspx?src={data}"' + tStyle + '></iframe>';
-            tGdocs = '<iframe class="kv-preview-data file-preview-gdocs" ' +
-                'src="https://docs.google.com/gview?url={data}&embedded=true"' + tStyle + '></iframe>';
-            tVideo = '<video class="kv-preview-data file-preview-video" controls' + tStyle + '>\n' +
-                '<source src="{data}" type="{type}">\n' + $h.DEFAULT_PREVIEW + '\n</video>\n';
-            tAudio = '<!--suppress ALL --><audio class="kv-preview-data file-preview-audio" controls' + tStyle + '>\n<source src="{data}" ' +
-                'type="{type}">\n' + $h.DEFAULT_PREVIEW + '\n</audio>\n';
-            tFlash = '<embed class="kv-preview-data file-preview-flash" src="{data}" type="application/x-shockwave-flash"' + tStyle + '>\n';
-            tPdf = '<embed class="kv-preview-data file-preview-pdf" src="{data}" type="application/pdf"' + tStyle + '>\n';
-            tObject = '<object class="kv-preview-data file-preview-object file-object {typeCss}" ' +
-                'data="{data}" type="{type}"' + tStyle + '>\n' + '<param name="movie" value="{caption}" />\n' +
-                $h.OBJECT_PARAMS + ' ' + $h.DEFAULT_PREVIEW + '\n</object>\n';
-            tOther = '<div class="kv-preview-data file-preview-other-frame"' + tStyle + '>\n' + $h.DEFAULT_PREVIEW + '\n</div>\n';
-            tZoomCache = '<div class="kv-zoom-cache" style="display:none">{zoomContent}</div>';
+            tTagAft     = '</div>{footer}\n</div>\n';
+            tGeneric    = '{content}\n';
+            tStyle      = ' {style}';
+            tHtml       = '<div class="kv-preview-data file-preview-html" title="{caption}"' + tStyle + '>{data}</div>\n';
+            tImage      = '<img src="{data}" class="file-preview-image kv-preview-data" title="{caption}" ' +
+                          'alt="{caption}"' + tStyle + '>\n';
+            tText       = '<textarea class="kv-preview-data file-preview-text" title="{caption}" readonly' + tStyle + '>' +
+                          '{data}</textarea>\n';
+            tOffice     = '<iframe class="kv-preview-data file-preview-office" ' +
+                          'src="https://view.officeapps.live.com/op/embed.aspx?src={data}"' + tStyle + '></iframe>';
+            tGdocs      = '<iframe class="kv-preview-data file-preview-gdocs" ' +
+                          'src="https://docs.google.com/gview?url={data}&embedded=true"' + tStyle + '></iframe>';
+            tVideo      = '<video class="kv-preview-data file-preview-video" controls' + tStyle + '>\n' +
+                          '<source src="{data}" type="{type}">\n' + $h.DEFAULT_PREVIEW + '\n</video>\n';
+            tAudio      = '<!--suppress ALL --><audio class="kv-preview-data file-preview-audio" controls' + tStyle + '>\n<source src="{data}" ' +
+                          'type="{type}">\n' + $h.DEFAULT_PREVIEW + '\n</audio>\n';
+            tFlash      = '<embed class="kv-preview-data file-preview-flash" src="{data}" type="application/x-shockwave-flash"' + tStyle + '>\n';
+            tPdf        = '<embed class="kv-preview-data file-preview-pdf" src="{data}" type="application/pdf"' + tStyle + '>\n';
+            tObject     = '<object class="kv-preview-data file-preview-object file-object {typeCss}" ' +
+                          'data="{data}" type="{type}"' + tStyle + '>\n' + '<param name="movie" value="{caption}" />\n' +
+                          $h.OBJECT_PARAMS + ' ' + $h.DEFAULT_PREVIEW + '\n</object>\n';
+            tOther      = '<div class="kv-preview-data file-preview-other-frame"' + tStyle + '>\n' + $h.DEFAULT_PREVIEW + '\n</div>\n';
+            tZoomCache  = '<div class="kv-zoom-cache" style="display:none">{zoomContent}</div>';
             vDefaultDim = {width: "100%", height: "100%", 'min-height': "480px"};
             self.defaults = {
                 layoutTemplates: {
@@ -847,41 +863,54 @@
                     flash: {width: "auto", height: "480px"},
                     object: {width: "auto", height: "100%", 'max-width': "100%", 'min-height': "480px"},
                     pdf: vDefaultDim,
-                    other: {width: "auto", height: "100%", 'min-height': "480px"}
+                    other: {width: "auto", height: "100px"}
                 },
                 fileTypeSettings: {
                     image: function (vType, vName) {
                         return ($h.compare(vType, 'image.*') && !$h.compare(vType, /(tiff?|wmf)$/i) ||
-                            $h.compare(vName, /\.(gif|png|jpe?g)$/i));
+                                $h.compare(vName, /\.(gif|png|jpe?g)$/i));
                     },
                     html: function (vType, vName) {
-                        return $h.compare(vType, 'text/html') || $h.compare(vName, /\.(htm|html)$/i);
+                        return  $h.compare(vType, 'text/html') || $h.compare(vName, /\.(htm|html)$/i);
                     },
-                    office: function (vType, vName) {
-                        return $h.compare(vType, /(word|excel|powerpoint|office)$/i) ||
-                            $h.compare(vName, /\.(docx?|xlsx?|pptx?|pps|potx?)$/i);
-                    },
+
                     gdocs: function (vType, vName) {
-                        return $h.compare(vType, /(word|excel|powerpoint|office|iwork-pages|tiff?)$/i) ||
-                            $h.compare(vName, /\.(docx?|xlsx?|pptx?|pps|potx?|rtf|ods|odt|pages|ai|dxf|ttf|tiff?|wmf|e?ps)$/i);
+                        return  $h.compare(vType, /(iwork-pages|tiff?)$/i) ||
+                                $h.compare(vName, /\.(ods|odt|pages|ai|dxf|ttf|tiff?|wmf|e?ps)$/i);
                     },
                     text: function (vType, vName) {
-                        return $h.compare(vType, 'text.*') || $h.compare(vName, /\.(xml|javascript)$/i) ||
-                            $h.compare(vName, /\.(txt|md|csv|nfo|ini|json|php|js|css)$/i);
+                        return  $h.compare(vType, 'text.*') || $h.compare(vName, /\.(xml|javascript)$/i) ||
+                                $h.compare(vName, /\.(txt|md|csv|nfo|ini|json|php|js|css)$/i);
                     },
                     video: function (vType, vName) {
-                        return $h.compare(vType, 'video.*') && ($h.compare(vType, /(ogg|mp4|mp?g|mov|webm|3gp)$/i) ||
-                            $h.compare(vName, /\.(og?|mp4|webm|mp?g|mov|3gp)$/i));
+                        return  $h.compare(vType, 'video.*') && ($h.compare(vType, /(ogg|mp4|mp?g|mov|webm|3gp)$/i) ||
+                                $h.compare(vName, /\.(og?|mp4|webm|mp?g|mov|3gp)$/i));
                     },
                     audio: function (vType, vName) {
-                        return $h.compare(vType, 'audio.*') && ($h.compare(vName, /(ogg|mp3|mp?g|wav)$/i) ||
-                            $h.compare(vName, /\.(og?|mp3|mp?g|wav)$/i));
+                        return  $h.compare(vType, 'audio.*') && ($h.compare(vName, /(ogg|mp3|mp?g|wav)$/i) ||
+                                $h.compare(vName, /\.(og?|mp3|mp?g|wav)$/i));
                     },
                     flash: function (vType, vName) {
-                        return $h.compare(vType, 'application/x-shockwave-flash', true) || $h.compare(vName, /\.(swf)$/i);
+                        return  $h.compare(vType, 'application/x-shockwave-flash', true) || $h.compare(vName, /\.(swf)$/i);
                     },
                     pdf: function (vType, vName) {
-                        return $h.compare(vType, 'application/pdf', true) || $h.compare(vName, /\.(pdf)$/i);
+                        return  $h.compare(vType, 'application/pdf', true) || $h.compare(vName, /\.(pdf)$/i);
+                    },
+                    excel: function (vType, vName) {
+                        return  $h.compare(vType, /(excel$|spreadsheetml)/i) ||
+                                $h.compare(vName, /\.(xls|xlt|xla|xlsx|xltx|xlsm|xltm|xlam|xlsb)$/i);
+                    },
+                    word: function (vType, vName) {
+                        return  $h.compare(vType, /(word$|wordprocessingml|ms-word)/i) ||
+                                $h.compare(vName, /\.(doc|dot|docx|dotx|docm|dotm)$/i);
+                    },
+                    ppoint: function (vType, vName) {
+                        return  $h.compare(vType, /(powerpoint$|presentationml)/i) ||
+                                $h.compare(vName, /\.(ppt|pot|pps|ppa|pptx|potx|ppsx|ppam|pptm|potm|ppsm)$/i);
+                    },
+                    zip: function (vType, vName) {
+                        return  $h.compare(vType, /(powerpoint$|presentationml)/i) ||
+                            $h.compare(vName, /\.(ppt|pot|pps|ppa|pptx|potx|ppsx|ppam|pptm|potm|ppsm)$/i);
                     },
                     object: function () {
                         return true;
@@ -938,6 +967,8 @@
         },
         _initPreviewTemplates: function () {
             var self = this, cfg = self.defaults, tags = self.previewMarkupTags, tagBef, tagAft = tags.tagAfter;
+
+            $.extend(cfg.previewContentTemplates,this.previewContentTemplates)
             $.each(cfg.previewContentTemplates, function (key, value) {
                 if ($h.isEmpty(self.previewTemplates[key])) {
                     tagBef = tags.tagBefore2;
@@ -946,7 +977,8 @@
                     }
                     self.previewTemplates[key] = tagBef + value + tagAft;
                 }
-            });
+            })
+
         },
         _initPreviewCache: function () {
             var self = this;
@@ -1294,8 +1326,10 @@
             if (type === 'application/text-plain') {
                 return 'text';
             }
+            // verifica si esta en la lista de permitidos
             for (i = 0; i < types.length; i++) {
                 cat = types[i];
+                // retorna la funcion definida y luego pasa a verificar
                 isValid = self.fileTypeSettings[cat];
                 vType = isValid(type, name) ? cat : '';
                 if (!$h.isEmpty(vType)) {
@@ -1305,6 +1339,7 @@
             return 'other';
         },
         _getPreviewIcon: function (fname) {
+            console.log("_getPreviewIcon", fname);
             var self = this, ext, out = null;
             if (fname && fname.indexOf('.') > -1) {
                 ext = fname.split('.').pop();
@@ -1321,6 +1356,8 @@
                     });
                 }
             }
+
+            console.log("_getPreviewIcon", {fname:fname,ext:ext});
             return out;
         },
         _parseFilePreviewIcon: function (content, fname) {
@@ -1424,6 +1461,8 @@
                 sel = '.file-preview-frame .file-preview-' + cat;
                 self.$preview.find(sel + '.kv-preview-data,' + sel + ' .kv-preview-data').css(settings);
             });
+
+
         },
         _initClickable: function () {
             var self = this, $zone;
@@ -2877,7 +2916,9 @@
         },
         _addToPreview: function ($preview, content) {
             var self = this;
-            return self.reversePreviewOrder ? $preview.prepend(content) : $preview.append(content);
+            var r =  self.reversePreviewOrder ? $preview.prepend(content) : $preview.append(content);
+            $h.pScroll.update();
+            return r;
         },
         _previewDefault: function (file, previewId, isDisabled) {
             var self = this, $preview = self.$preview;
@@ -2899,6 +2940,7 @@
             if (!this.showPreview) {
                 return;
             }
+            console.log('_previewFile', fileInfo);
             var self = this, fname = file ? file.name : '', ftype = fileInfo.type, caption = fileInfo.name,
                 cat = self._parseFileType(ftype, fname), types = self.allowedPreviewTypes, content,
                 mimes = self.allowedPreviewMimeTypes, $preview = self.$preview, fsize = file.size || 0,
@@ -3332,6 +3374,7 @@
             if (self.theme) {
                 $container.addClass('theme-' + self.theme);
             }
+            $h.pScroll.init();
             return $container;
         },
         _refreshContainer: function () {
@@ -3340,6 +3383,7 @@
             $container.html(self._renderMain());
             self._initBrowse($container);
             self._validateDisabled();
+
         },
         _validateDisabled: function () {
             var self = this;

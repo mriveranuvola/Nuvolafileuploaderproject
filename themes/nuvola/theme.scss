@@ -11,7 +11,8 @@
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
 //colors
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100i,300i,400i,700i');
 $mountain-mist: #999 !default;
 $apple-blossom: #a94442 !default;
 $vanilla-ice: #f2dede !default;
@@ -273,6 +274,10 @@ div.file-input.theme-nuvola {
 
         padding: multiply($pad, 1.6);
         margin-bottom: $pad;
+        height: 270px;
+        overflow: hidden;
+        overflow-y: scroll;
+        position: relative;
         .btn-xs {
             padding: multiply($pad, 0.2) $pad;
             font-size: multiply($pad, 2.4);
@@ -311,26 +316,28 @@ div.file-input.theme-nuvola {
                 font-weight: 400;
 
             }
-
+            $prevHeight:100px;
             & .kv-file-content.content-wrapper{
                 text-align: center;
-                height: 100px;
+                height: $prevHeight ;
                 overflow: hidden;
                 border: 1.5px solid #cccccc;
                 border-radius: 5px;
                 background-color: #e4e4e4;
+
                 @extend %set-relative;
                 transition: transform .2s; /* Animation */
 
-                & img{
+
+                & .kv-preview-data{
                     width: auto;
-                    height: 100px;
+                    height: 100%;
                     max-height: none !important;
                     max-width: none !important;
                     position: absolute;
                     left: 50%;
-                    top: 0;
-                    transform: translateX(-50%);
+                    top: 50%;
+                    transform: translate(-50%, -50%);
                     transition: transform .2s; /* Animation */
                 }
 
@@ -456,10 +463,7 @@ div.file-input.theme-nuvola {
         opacity: 1;
     }
 
-    .file-preview-image {
-        font: multiply($pad, 8) $font-0, $font-1, $font-2;
-        color: $green;
-    }
+
 }
 
 
@@ -578,7 +582,10 @@ div.file-input.theme-nuvola {
     font-family: 'Lato', serif;
     & a.btn-close{
         @extend %set-btn-close;
-        margin: 10px;
+
+       & i {
+           margin: 12px;
+       }
 
     }
     & .kv-zoom-actions {
@@ -900,3 +907,121 @@ div.file-input.theme-nuvola {
     background-color: $link-water;
 }
 
+.file-input div.file-preview {
+    /*
+     * Container style
+     */
+    .ps {
+        overflow: hidden !important;
+        overflow-anchor: none;
+        -ms-overflow-style: none;
+        touch-action: auto;
+        -ms-touch-action: auto;
+    }
+
+    /*
+     * Scrollbar rail styles
+     */
+    .ps__rail-x {
+        display: none;
+        opacity: 0;
+        transition: background-color .2s linear, opacity .2s linear;
+        -webkit-transition: background-color .2s linear, opacity .2s linear;
+        height: 15px;
+        /* there must be 'bottom' or 'top' for ps__rail-x */
+        bottom: 0px;
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    .ps__rail-y {
+        display: none;
+        opacity: 0;
+        transition: background-color .2s linear, opacity .2s linear;
+        -webkit-transition: background-color .2s linear, opacity .2s linear;
+        width: 15px;
+        /* there must be 'right' or 'left' for ps__rail-y */
+        right: 0;
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    .ps--active-x > .ps__rail-x,
+    .ps--active-y > .ps__rail-y {
+        display: block;
+        background-color: transparent;
+    }
+
+    .ps:hover > .ps__rail-x,
+    .ps:hover > .ps__rail-y,
+    .ps--focus > .ps__rail-x,
+    .ps--focus > .ps__rail-y,
+    .ps--scrolling-x > .ps__rail-x,
+    .ps--scrolling-y > .ps__rail-y {
+        opacity: 0.6;
+    }
+
+    .ps .ps__rail-x:hover,
+    .ps .ps__rail-y:hover,
+    .ps .ps__rail-x:focus,
+    .ps .ps__rail-y:focus,
+    .ps .ps__rail-x.ps--clicking,
+    .ps .ps__rail-y.ps--clicking {
+        background-color: #eee;
+        opacity: 0.9;
+    }
+
+    /*
+     * Scrollbar thumb styles
+     */
+    .ps__thumb-x {
+        background-color: #aaa;
+        border-radius: 6px;
+        transition: background-color .2s linear, height .2s ease-in-out;
+        -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+        height: 6px;
+        /* there must be 'bottom' for ps__thumb-x */
+        bottom: 2px;
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    .ps__thumb-y {
+        background-color: #aaa;
+        border-radius: 6px;
+        transition: background-color .2s linear, width .2s ease-in-out;
+        -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+        width: 6px;
+        /* there must be 'right' for ps__thumb-y */
+        right: 2px;
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    .ps__rail-x:hover > .ps__thumb-x,
+    .ps__rail-x:focus > .ps__thumb-x,
+    .ps__rail-x.ps--clicking .ps__thumb-x {
+        background-color: #999;
+        height: 11px;
+    }
+
+    .ps__rail-y:hover > .ps__thumb-y,
+    .ps__rail-y:focus > .ps__thumb-y,
+    .ps__rail-y.ps--clicking .ps__thumb-y {
+        background-color: #999;
+        width: 11px;
+    }
+
+    /* MS supports */
+    @supports (-ms-overflow-style: none) {
+        .ps {
+            overflow: auto !important;
+        }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .ps {
+            overflow: auto !important;
+        }
+    }
+}
