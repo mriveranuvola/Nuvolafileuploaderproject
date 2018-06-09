@@ -4235,15 +4235,25 @@
         this.each(function () {
             var self = $(this), data = self.data('fileinput'), options = typeof option === 'object' && option,
                 theme = options.theme || self.data('theme'), l = {}, t = {},
-                lang = options.language || self.data('language') || $.fn.fileinput.defaults.language || 'en', opt;
+                lang = theme.language || options.language || self.data('language') || $.fn.fileinput.defaults.language || 'en', opt;
+
             if (!data) {
                 if (theme) {
                     t = $.fn.fileinputThemes[theme] || {};
+                    if(!$h.isEmpty(t.language)){
+                        lang = t.language
+                    }
                 }
-                if (lang !== 'en' && !$h.isEmpty($.fn.fileinputLocales[lang])) {
-                    l = $.fn.fileinputLocales[lang] || {};
+
+                if (lang !== 'en' && lang !== 'es') {
+                    if(!$h.isEmpty($.fn.fileinputLocales[lang])){
+                        l = $.fn.fileinputLocales[lang] || {};
+                    }else if( lang !== 'es'){
+                       lang='en';
+                    }
                 }
-                opt = $.extend(true, {}, $.fn.fileinput.defaults, t, $.fn.fileinputLocales.en, l, options, self.data());
+
+                opt = $.extend(true, {}, $.fn.fileinput.defaults, t, $.fn.fileinputLocales[lang], l, options, self.data());
                 data = new FileInput(this, opt);
                 self.data('fileinput', data);
             }

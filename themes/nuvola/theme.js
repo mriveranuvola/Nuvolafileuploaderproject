@@ -197,6 +197,8 @@ var fa_file     =
 (function ($) {
     "use strict";
     $.fn.fileinputThemes.nuvola = {
+        language: 'es',
+        uploadUrl: "/file-upload-single/1",
         frameClass: 'nuvola-frame',
         layoutTemplates: {
             /*preview:'' +
@@ -380,8 +382,6 @@ $(document).ready(function(){
 
     $("#attahments").fileinput({
         theme: 'nuvola',
-        language: $('html').attr('lang'),
-        uploadUrl: "/file-upload-single/1"
     })
 
     $(document).on('show.bs.modal', '.modal', function () {
